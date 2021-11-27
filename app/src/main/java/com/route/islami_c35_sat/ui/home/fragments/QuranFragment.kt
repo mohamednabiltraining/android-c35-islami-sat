@@ -1,14 +1,16 @@
 package com.route.islami_c35_sat.ui.home.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.route.islami_c35_sat.Constants
 import com.route.islami_c35_sat.R
 import com.route.islami_c35_sat.ui.home.fragments.adapter.SuraNamesAdapter
+import com.route.islami_c35_sat.ui.suraDetails.SuraDetailsActivity
 
 class QuranFragment : Fragment() {
 
@@ -150,10 +152,18 @@ class QuranFragment : Fragment() {
         adapter = SuraNamesAdapter(chaptersNames)
         adapter.onItemClickListener = object : SuraNamesAdapter.OnItemClickListener {
             override fun onItemClick(pos: Int, name: String) {
-                Toast.makeText(requireActivity(), name, Toast.LENGTH_SHORT).show()
+                //  Toast.makeText(requireActivity(), name, Toast.LENGTH_SHORT).show()
+                showSuraDetails(pos, name)
             }
         }
         recyclerView.adapter = adapter
 
+    }
+
+    fun showSuraDetails(pos: Int, name: String) {
+        val intent = Intent(requireActivity(), SuraDetailsActivity::class.java)
+        intent.putExtra(Constants.EXTRA_SURA_NAME, name)
+        intent.putExtra(Constants.EXTRA_SURA_POS, pos);
+        startActivity(intent);
     }
 }

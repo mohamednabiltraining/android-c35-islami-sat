@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="homeAsUpIndicator">@drawable/ic_back</item>
     </style>
 
     <style name="noActionBar" parent="Theme.Islamic35sat">
@@ -22,5 +23,14 @@
     <style name="bottom_navigation_bar_theme">
         <item name="android:background">@color/colorGold</item>
     </style>
+
+    <style name="Theme.Islamic35sat.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Islamic35sat.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Islamic35sat.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
